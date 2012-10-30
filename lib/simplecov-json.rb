@@ -3,16 +3,20 @@ require 'json'
 
 class SimpleCov::Formatter::JSONFormatter
   def format(result)
-    puts result.inspect
+    #puts result.inspect
     data = {}
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
     data[:files] = []
-    result.original_result.each do |filename,coverage| 
-      next unless result.filenames.include? filename
+    result.files.each do |sourceFile|
+      next unless result.filenames.include? sourceFile.filename
       data[:files] << {
-        filename: filename,
-        coverage: coverage,
+        filename: sourceFile.filename,
+        covered_percent: sourceFile.covered_percent,
+        coverage: sourceFile.coverage,
+        covered_strength: sourceFile.covered_strength, 
+        covered_lines: sourceFile.covered_lines.count, 
+        lines_of_code: sourceFile.lines_of_code, 
       }
     end
     data[:groups] = result.groups
