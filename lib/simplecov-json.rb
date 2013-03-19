@@ -15,7 +15,6 @@ class SimpleCov::Formatter::JSONFormatter
         coverage: coverage
       }
     end
-    data[:groups] = result.groups
     data[:metrics] = {
       covered_percent: result.covered_percent,
       covered_strength: result.covered_strength,
