@@ -16,6 +16,8 @@ Gem::Specification.new do |s|
   s.test_files    = ['test/helper', 'test/test_simplecov_json.rb']
   s.require_paths = ["lib"]
   
-  s.add_dependency(%q<simplecov>, [">= 0"])
-  s.add_dependency(%q<json>, [">= 0"])
+  s.add_dependency "simplecov"
+  s.add_dependency "json"
+  
+  s.add_development_dependency "rake"
 end
