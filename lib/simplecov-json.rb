@@ -23,11 +23,14 @@ class SimpleCov::Formatter::JSONFormatter
       total_lines: result.total_lines
     }
     
+    json = data.to_json
+    
     File.open(output_filepath, "w+") do |file|
-      file.puts data.to_json
+      file.puts json
     end
     puts output_message(result)
-    data.to_json
+    
+    json
   end
 
   def output_filename
