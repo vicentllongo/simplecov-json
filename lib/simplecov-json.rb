@@ -12,7 +12,7 @@ class SimpleCov::Formatter::JSONFormatter
       next unless result.filenames.include? filename
       data[:files] << {
         filename: filename,
-        coverage: coverage,
+        coverage: coverage
       }
     end
     data[:groups] = result.groups
@@ -20,7 +20,7 @@ class SimpleCov::Formatter::JSONFormatter
       covered_percent: result.covered_percent,
       covered_strength: result.covered_strength,
       covered_lines: result.covered_lines,
-      total_lines: result.total_lines,
+      total_lines: result.total_lines
     }
     
     File.open(output_filepath, "w+") do |file|
