@@ -22,7 +22,8 @@ class SimpleCov::Formatter::JSONFormatter
       covered_lines: result.covered_lines,
       total_lines: result.total_lines,
     }
-    File.open(File.join(output_path, output_filename), "w+") do |file|
+    
+    File.open(output_filepath, "w+") do |file|
       file.puts data.to_json
     end
     puts output_message(result)
