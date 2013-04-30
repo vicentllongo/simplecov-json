@@ -14,7 +14,7 @@ class SimpleCov::Formatter::JSONFormatter
         filename: sourceFile.filename,
         covered_percent: sourceFile.covered_percent,
         coverage: sourceFile.coverage,
-        covered_strength: sourceFile.covered_strength, 
+        covered_strength: sourceFile.covered_strength.nan? ? 0.0 : sourceFile.covered_strength, 
         covered_lines: sourceFile.covered_lines.count, 
         lines_of_code: sourceFile.lines_of_code, 
       }
@@ -22,7 +22,7 @@ class SimpleCov::Formatter::JSONFormatter
     data[:groups] = result.groups
     data[:metrics] = {
       covered_percent: result.covered_percent,
-      covered_strength: result.covered_strength,
+      covered_strength: result.covered_strength.nan? ? 0.0 : result.covered_strength,
       covered_lines: result.covered_lines,
       total_lines: result.total_lines,
     }
