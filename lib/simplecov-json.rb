@@ -3,7 +3,6 @@ require 'json'
 
 class SimpleCov::Formatter::JSONFormatter
   def format(result)
-    puts result.inspect
     data = {}
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
@@ -22,6 +21,7 @@ class SimpleCov::Formatter::JSONFormatter
       covered_lines: result.covered_lines,
       total_lines: result.total_lines,
     }
+    data[:reports] = result.reports
     File.open(File.join(output_path, output_filename), "w+") do |file|
       file.puts data.to_json
     end
