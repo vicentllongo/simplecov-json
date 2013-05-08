@@ -21,6 +21,7 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     result.expects(:covered_strength).returns(0.87)
     result.expects(:covered_lines).returns(11)
     result.expects(:total_lines).returns(15)
+    result.expects(:reports).returns({})
 
     result.expects(:command_name).returns('RSpec')
     result.expects(:covered_lines).returns(11)
@@ -40,7 +41,8 @@ class TestSimpleCovHtml < Test::Unit::TestCase
         'covered_strength' => 0.87,
         'covered_lines' => 11,
         'total_lines' => 15,
-      } 
+      },
+      'reports' => {}
     }.to_json)
   end
 end

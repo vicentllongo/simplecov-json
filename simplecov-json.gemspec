@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
   
   s.add_dependency(%q<simplecov>, [">= 0"])
   s.add_dependency(%q<json>, [">= 0"])
+
+  s.add_development_dependency 'rake'
 end
