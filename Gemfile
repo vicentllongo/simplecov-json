@@ -13,5 +13,5 @@ group :development do
   end
 =end
 
-  gem 'simplecov', '=0.8.1.ooyala'
+  gem 'simplecov', '0.8.2.ooyala'
 end
