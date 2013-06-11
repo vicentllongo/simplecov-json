@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency(%q<json>, [">= 0"])
+  s.add_dependency "simplecov", "0.9.0.ooyala"
 
   s.add_development_dependency 'rake'
 end
