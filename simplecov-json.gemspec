@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "simplecov-json"
-  s.version     = '0.1.7.ooyala'
+  s.version     = '0.1.8.ooyala'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Vicent Llongo"]
   s.email       = ["villosil@gmail.com"]
