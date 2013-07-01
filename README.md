@@ -44,7 +44,16 @@ The format you can expect is:
                   "covered_strength": 0.8170731707317073,
                   "covered_lines": 67,
                   "total_lines": 82
-            }
+            },
+            "reports": [
+                {
+                    "type": {
+                        "main": "cool_report"
+                    },
+                    "title": "Cool report",
+                    "items": {}
+                }
+            ]
         }
 
 ## Copyright
