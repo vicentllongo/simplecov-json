@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "simplecov-json"
-  s.version     = '0.1.8.ooyala'
+  s.version     = '0.1.9.ooyala'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Vicent Llongo"]
   s.email       = ["villosil@gmail.com"]
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency(%q<json>, [">= 0"])
-  s.add_dependency "simplecov", "0.9.2.ooyala"
+  s.add_dependency "simplecov", "0.9.3.ooyala"
 
   s.add_development_dependency 'rake'
 end
