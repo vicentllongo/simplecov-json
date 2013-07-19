@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "simplecov-json"
   s.files         = ['lib/simplecov-json.rb']
-  s.test_files    = ['test/helper', 'test/test_simplecov_json.rb']
+  s.test_files    = ['test/helper.rb', 'test/test_simplecov_json.rb']
   s.require_paths = ["lib"]
   
   s.add_dependency(%q<simplecov>, [">= 0"])
