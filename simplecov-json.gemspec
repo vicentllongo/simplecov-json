@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "simplecov-json"
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Vicent Llongo"]
   s.email       = ["villosil@gmail.com"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "simplecov-json"
   s.files         = ['lib/simplecov-json.rb']
-  s.test_files    = ['test/helper', 'test/test_simplecov_json.rb']
+  s.test_files    = ['test/helper.rb', 'test/test_simplecov_json.rb']
   s.require_paths = ["lib"]
   
   s.add_dependency(%q<simplecov>, [">= 0"])
