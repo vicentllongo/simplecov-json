@@ -4,7 +4,7 @@ require 'simplecov'
 require 'simplecov-json'
 
 require 'test/unit'
-require 'mocha'
+require 'mocha/setup'
 
 class Test::Unit::TestCase
 end

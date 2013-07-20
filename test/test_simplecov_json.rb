@@ -16,7 +16,6 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     result.expects(:filenames).returns(['/lib/foo.rb', '/lib/bar.rb'])
     result.expects(:filenames).returns(['/lib/foo.rb', '/lib/bar.rb'])
     result.expects(:filenames).returns(['/lib/foo.rb', '/lib/bar.rb'])
-    result.expects(:groups).returns(['controllers', 'models'])
     result.expects(:covered_percent).returns(73.33)
     result.expects(:covered_strength).returns(0.87)
     result.expects(:covered_lines).returns(11)
@@ -34,7 +33,6 @@ class TestSimpleCovHtml < Test::Unit::TestCase
         {'filename' => '/lib/foo.rb', 'coverage' => [1, nil, 0, 0, nil, 1, nil]},
         {'filename' => '/lib/bar.rb', 'coverage' => [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil]},
       ],
-      'groups' =>['controllers', 'models'],
       'metrics' => {
         'covered_percent' => 73.33,
         'covered_strength' => 0.87,
