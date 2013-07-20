@@ -8,17 +8,20 @@ class SimpleCov::Formatter::JSONFormatter
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
     data[:files] = []
-    result.original_result.each do |filename, coverage|
-      next unless result.filenames.include? filename
-      
+    result.files.each do |sourceFile|
+      next unless result.filenames.include? sourceFile.filename
       data[:files] << {
-        filename: filename,
-        coverage: coverage
+        filename: sourceFile.filename,
+        covered_percent: sourceFile.covered_percent,
+        coverage: sourceFile.coverage,
+        covered_strength: sourceFile.covered_strength.nan? ? 0.0 : sourceFile.covered_strength, 
+        covered_lines: sourceFile.covered_lines.count, 
+        lines_of_code: sourceFile.lines_of_code, 
       }
     end
     data[:metrics] = {
       covered_percent: result.covered_percent,
-      covered_strength: result.covered_strength,
+      covered_strength: result.covered_strength.nan? ? 0.0 : result.covered_strength,
       covered_lines: result.covered_lines,
       total_lines: result.total_lines
     }
