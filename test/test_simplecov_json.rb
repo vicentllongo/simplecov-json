@@ -16,27 +16,24 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     barLineList = mock()
     barLineList.expects(:count).returns(5)
 
-    foo.expects(:filename).returns('/lib/foo.rb')
-    foo.expects(:filename).returns('/lib/foo.rb')
+    foo.expects(:filename).twice.returns('/lib/foo.rb')
     foo.expects(:covered_percent).returns(50.0)
     foo.expects(:coverage).returns([1, nil, 0, 0, nil, 1, nil])
-    foo.expects(:covered_strength).returns(0.50)
+    foo.expects(:covered_strength).twice.returns(0.50)
     foo.expects(:covered_lines).returns(fooLineList)
     foo.expects(:lines_of_code).returns(4)
     
-    bar.expects(:filename).returns('/lib/bar.rb')
-    bar.expects(:filename).returns('/lib/bar.rb')
+    bar.expects(:filename).twice.returns('/lib/bar.rb')
     bar.expects(:covered_percent).returns(71.42)
     bar.expects(:coverage).returns([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
-    bar.expects(:covered_strength).returns(0.71)
+    bar.expects(:covered_strength).twice.returns(0.71)
     bar.expects(:covered_lines).returns(barLineList)
     bar.expects(:lines_of_code).returns(7)
 
     result.expects(:files).returns([foo, bar])
-    result.expects(:filenames).returns(['/lib/foo.rb', '/lib/bar.rb'])
-    result.expects(:filenames).returns(['/lib/foo.rb', '/lib/bar.rb'])
+    result.expects(:filenames).twice.returns(['/lib/foo.rb', '/lib/bar.rb'])
     result.expects(:covered_percent).returns(73.33)
-    result.expects(:covered_strength).returns(0.87)
+    result.expects(:covered_strength).twice.returns(0.87)
     result.expects(:covered_lines).returns(11)
     result.expects(:total_lines).returns(15)
 
@@ -46,12 +43,12 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     result.expects(:covered_percent).returns(73.33)
 
 
-# filename
-# covered_percent
-# coverage
-# covered_strength
-# covered_lines
-# lines_of_code
+    # filename
+    # covered_percent
+    # coverage
+    # covered_strength
+    # covered_lines
+    # lines_of_code
     assert_equal(formatter.format(result), {
       'timestamp' => created_at.to_i, 
       'command_name' => 'RSpec', 
