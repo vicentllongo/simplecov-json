@@ -11,21 +11,27 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     created_at = DateTime.now.to_s
     result.expects(:created_at).returns(created_at)
     result.expects(:command_name).returns('RSpec')
-    
+
+    foo_src = 'dummy source for /myproject/lib/foo.rb'
+    bar_src = 'dummy source for /myproject/lib/bar.rb'
+    FileUtils.mkdir_p('/myproject/lib')
+    File.write('/myproject/lib/foo.rb',foo_src)
+    File.write('/myproject/lib/bar.rb',bar_src)
+
     fooLineList = mock()
     fooLineList.expects(:count).returns(2)
 
     barLineList = mock()
     barLineList.expects(:count).returns(5)
 
-    foo.expects(:filename).twice.returns('/myproject/lib/foo.rb')
+    foo.expects(:filename).times(4).returns('/myproject/lib/foo.rb')
     foo.expects(:covered_percent).returns(50.0)
     foo.expects(:coverage).returns([1, nil, 0, 0, nil, 1, nil])
     foo.expects(:covered_strength).twice.returns(0.50)
     foo.expects(:covered_lines).returns(fooLineList)
     foo.expects(:lines_of_code).returns(4)
     
-    bar.expects(:filename).twice.returns('/myproject/lib/bar.rb')
+    bar.expects(:filename).times(4).returns('/myproject/lib/bar.rb')
     bar.expects(:covered_percent).returns(71.42)
     bar.expects(:coverage).returns([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
     bar.expects(:covered_strength).twice.returns(0.71)
@@ -57,6 +63,7 @@ class TestSimpleCovHtml < Test::Unit::TestCase
       'command_name' => 'RSpec',
       'files' => [
         {'filename' => '/lib/foo.rb',
+          'src' => foo_src,
           'covered_percent' => 50.0,
           'coverage' => [1, nil, 0, 0, nil, 1, nil],
           'covered_strength' => 0.50,
@@ -64,6 +71,7 @@ class TestSimpleCovHtml < Test::Unit::TestCase
           'lines_of_code' => 4
         },
         {'filename' => '/lib/bar.rb',
+          'src' => bar_src,
           'covered_percent' => 71.42,
           'coverage' => [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil],
           'covered_strength' => 0.71,

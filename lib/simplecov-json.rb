@@ -13,6 +13,7 @@ class SimpleCov::Formatter::JSONFormatter
       next unless result.filenames.include? sourceFile.filename
       data[:files] << {
         filename: sourceFile.filename.gsub(/^#{SimpleCov.root}/,''),
+        src: File.exist?(sourceFile.filename) ? File.read(sourceFile.filename) : '',
         covered_percent: sourceFile.covered_percent,
         coverage: sourceFile.coverage,
         covered_strength: sourceFile.covered_strength.nan? ? 0.0 : sourceFile.covered_strength, 
