@@ -12,7 +12,7 @@ class SimpleCov::Formatter::JSONFormatter
     result.files.each do |sourceFile|
       next unless result.filenames.include? sourceFile.filename
       data[:files] << {
-        filename: sourceFile.filename,
+        filename: sourceFile.filename.gsub(/^#{SimpleCov.root}/,''),
         covered_percent: sourceFile.covered_percent,
         coverage: sourceFile.coverage,
         covered_strength: sourceFile.covered_strength.nan? ? 0.0 : sourceFile.covered_strength, 
