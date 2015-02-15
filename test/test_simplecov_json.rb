@@ -50,8 +50,9 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     # covered_lines
     # lines_of_code
     assert_equal(formatter.format(result), {
-      'timestamp' => created_at.to_i, 
-      'command_name' => 'RSpec', 
+      'type' => 'simplecov-json',
+      'timestamp' => created_at.to_i,
+      'command_name' => 'RSpec',
       'files' => [
         {'filename' => '/lib/foo.rb',
           'covered_percent' => 50.0,
@@ -73,7 +74,7 @@ class TestSimpleCovHtml < Test::Unit::TestCase
         'covered_strength' => 0.87,
         'covered_lines' => 11,
         'total_lines' => 15,
-      } 
+      }
     }.to_json)
   end
 end

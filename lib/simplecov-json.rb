@@ -5,6 +5,7 @@ class SimpleCov::Formatter::JSONFormatter
   
   def format(result)
     data = {}
+    data[:type] = 'simplecov-json'
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
     data[:files] = []
