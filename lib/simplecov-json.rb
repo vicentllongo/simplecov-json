@@ -9,8 +9,10 @@ class SimpleCov::Formatter::JSONFormatter
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
     data[:files] = []
+
     result.files.each do |sourceFile|
       next unless result.filenames.include? sourceFile.filename
+
       data[:files] << {
         filename: sourceFile.filename.gsub(/^#{SimpleCov.root}/,''),
         src: File.exist?(sourceFile.filename) ? File.read(sourceFile.filename) : '',
@@ -21,6 +23,7 @@ class SimpleCov::Formatter::JSONFormatter
         lines_of_code: sourceFile.lines_of_code, 
       }
     end
+
     data[:metrics] = {
       covered_percent: result.covered_percent,
       covered_strength: result.covered_strength.nan? ? 0.0 : result.covered_strength,
