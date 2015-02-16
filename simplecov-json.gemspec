@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
   s.description = %Q{JSON formatter for SimpleCov code coverage tool for ruby 1.9+}
 
   s.rubyforge_project = "simplecov-json"
-  s.files         = ['lib/simplecov-json.rb']
-  s.test_files    = ['test/helper.rb', 'test/test_simplecov_json.rb']
+  s.files         = `git ls-files -z`.split("\x0")
+  s.test_files    = s.files.grep(%r{^test/})
   s.require_paths = ["lib"]
-  
+
   s.add_dependency "simplecov"
   s.add_dependency "json"
   
