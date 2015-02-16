@@ -1,9 +1,10 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
+require 'simplecov-json/version'
 
 Gem::Specification.new do |s|
   s.name        = "simplecov-json"
-  s.version     = '0.2'
+  s.version     = SimpleCov::Formatter::JSONFormatter::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Vicent Llongo"]
   s.email       = ["villosil@gmail.com"]
