@@ -59,6 +59,7 @@ module SimpleCov
 
       expected_output = {
         'type' => 'simplecov-json',
+        'version' => SimpleCov::Formatter::JSONFormatter::VERSION,
         'timestamp' => created_at.to_i,
         'command_name' => command,
         'files' => files.map {|f| f[:output] },

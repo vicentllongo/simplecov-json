@@ -1,11 +1,13 @@
 require 'simplecov'
 require 'json'
+require 'simplecov-json/version'
 
 class SimpleCov::Formatter::JSONFormatter
   
   def format(result)
     data = {}
     data[:type] = 'simplecov-json'
+    data[:version] = VERSION
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
     data[:files] = []
