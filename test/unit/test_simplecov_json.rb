@@ -27,17 +27,13 @@ class TestSimpleCovJson < Test::Unit::TestCase
     root = '/myproject'
     SimpleCov.root(root)
 
-    foo_src =<<END
-    dummy source for /myproject/lib/bar.rb
-END
-    foo_coverage = foo_src.split(/\n/).map do |line|
+    foo_src = mock_src(80,20)
+    foo_coverage = foo_src.split(/\n/).map do
       COVERAGE_SELECTION.sample
     end
 
-    bar_src =<<END
-    dummy source for /myproject/lib/bar.rb
-END
-    bar_coverage = bar_src.split(/\n/).map do |line|
+    bar_src = mock_src(80,20)
+    bar_coverage = bar_src.split(/\n/).map do
       COVERAGE_SELECTION.sample
     end
 
@@ -57,17 +53,12 @@ END
     root = '/myproject'
     SimpleCov.root(root)
 
-    foo_src =<<END
-    dummy source for /myproject/lib/bar.rb
-END
-    foo_coverage = foo_src.split(/\n/).map do |line|
+    foo_src = mock_src(80,20)
+    foo_coverage = foo_src.split(/\n/).map do
       COVERAGE_SELECTION.sample
     end
-
-    bar_src =<<END
-    dummy source for /myproject/lib/bar.rb
-END
-    bar_coverage = bar_src.split(/\n/).map do |line|
+    bar_src = mock_src(80,20)
+    bar_coverage = bar_src.split(/\n/).map do
       COVERAGE_SELECTION.sample
     end
 

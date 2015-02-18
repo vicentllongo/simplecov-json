@@ -1,5 +1,14 @@
 module SimpleCov
   module Mocks
+    def mock_src chars, lines
+      src = []
+      (1...lines).each do
+        line = ((1...chars).map { (65 + rand(26)).chr }.join)
+        src << line
+      end
+      src.join("\n")
+    end
+
     def mock_file root, filename, src, coverage
       filepath = "#{root}#{filename}"
       dirname = File.dirname(filepath)
