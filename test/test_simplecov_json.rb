@@ -26,7 +26,7 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     bar.expects(:filename).twice.returns('/lib/bar.rb')
     bar.expects(:covered_percent).returns(71.42)
     bar.expects(:coverage).returns([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
-    bar.expects(:covered_strength).twice.returns(0.71)
+    bar.expects(:covered_strength).twice.returns(0)
     bar.expects(:covered_lines).returns(barLineList)
     bar.expects(:lines_of_code).returns(7)
 
@@ -63,7 +63,7 @@ class TestSimpleCovHtml < Test::Unit::TestCase
         {'filename' => '/lib/bar.rb',
           'covered_percent' => 71.42,
           'coverage' => [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil],
-          'covered_strength' => 0.71,
+          'covered_strength' => 0,
           'covered_lines' => 5,
           'lines_of_code' => 7
         },
