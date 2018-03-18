@@ -51,7 +51,8 @@ class TestSimpleCovHtml < Test::Unit::TestCase
     # lines_of_code
     assert_equal(formatter.format(result), {
       'timestamp' => created_at.to_i, 
-      'command_name' => 'RSpec', 
+      'command_name' => 'RSpec',
+      'project_root' => SimpleCov.root,
       'files' => [
         {'filename' => '/lib/foo.rb',
           'covered_percent' => 50.0,

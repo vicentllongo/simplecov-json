@@ -7,6 +7,7 @@ class SimpleCov::Formatter::JSONFormatter
     data = {}
     data[:timestamp] = result.created_at.to_i
     data[:command_name] = result.command_name
+    data[:project_root] = SimpleCov.root
     data[:files] = []
     result.files.each do |sourceFile|
       next unless result.filenames.include? sourceFile.filename
