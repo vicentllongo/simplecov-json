@@ -19,6 +19,16 @@ class SimpleCov::Formatter::JSONFormatter
         lines_of_code: sourceFile.lines_of_code, 
       }
     end
+    data[:groups] = []
+    result.groups.each do |group_name, group|
+      data[:groups] << {
+        group_name: group_name,
+        covered_percent: group.covered_percent,
+        covered_strength: group.covered_strength.nan? ? 0.0 : group.covered_strength,
+        covered_lines: group.covered_lines,
+        lines_of_code: group.lines_of_code,
+      }
+    end
     data[:metrics] = {
       covered_percent: result.covered_percent,
       covered_strength: result.covered_strength.nan? ? 0.0 : result.covered_strength,
