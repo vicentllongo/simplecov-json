@@ -25,7 +25,11 @@ RSpec.describe SimpleCov::Formatter::OjFormatter do
 
       allow(foo).to receive(:filename).twice.and_return("/lib/foo.rb")
       allow(foo).to receive(:covered_percent).and_return(50.0)
-      allow(foo).to receive(:coverage_data).and_return([1, nil, 0, 0, nil, 1, nil])
+      if SimpleCov::SourceFile.instance_methods.include?(:coverage_data)
+        allow(foo).to receive(:coverage_data).and_return([1, nil, 0, 0, nil, 1, nil])
+      else
+        allow(foo).to receive(:coverage).and_return([1, nil, 0, 0, nil, 1, nil])
+      end
       allow(foo).to receive(:covered_strength).twice.and_return(0.50)
       allow(foo).to receive(:covered_lines).and_return(foo_line_list)
       allow(foo).to receive(:lines_of_code).and_return(4)
@@ -34,7 +38,11 @@ RSpec.describe SimpleCov::Formatter::OjFormatter do
 
       allow(bar).to receive(:filename).twice.and_return("/lib/bar.rb")
       allow(bar).to receive(:covered_percent).and_return(71.42)
-      allow(bar).to receive(:coverage_data).and_return([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
+      if SimpleCov::SourceFile.instance_methods.include?(:coverage_data)
+        allow(bar).to receive(:coverage_data).and_return([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
+      else
+        allow(bar).to receive(:coverage).and_return([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
+      end
       allow(bar).to receive(:covered_strength).twice.and_return(0.71)
       allow(bar).to receive(:covered_lines).and_return(bar_line_list)
       allow(bar).to receive(:lines_of_code).and_return(7)
@@ -49,13 +57,13 @@ RSpec.describe SimpleCov::Formatter::OjFormatter do
         "files" => [
           { "filename" => "/lib/foo.rb",
             "covered_percent" => 50.0,
-            "coverage_data" => [1, nil, 0, 0, nil, 1, nil],
+            "coverage" => [1, nil, 0, 0, nil, 1, nil],
             "covered_strength" => 0.50,
             "covered_lines" => 2,
             "lines_of_code" => 4 },
           { "filename" => "/lib/bar.rb",
             "covered_percent" => 71.42,
-            "coverage_data" => [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil],
+            "coverage" => [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil],
             "covered_strength" => 0.71,
             "covered_lines" => 5,
             "lines_of_code" => 7 },

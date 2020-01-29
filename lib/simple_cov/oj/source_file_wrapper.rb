@@ -27,7 +27,7 @@ module SimpleCov
       def to_h
         { filename: filename,
           covered_percent: covered_percent,
-          coverage_data: coverage_data,
+          coverage: coverage_data,
           covered_strength: covered_strength,
           covered_lines: covered_lines_count,
           lines_of_code: lines_of_code }
@@ -39,7 +39,11 @@ module SimpleCov
 
       # @private
       def coverage_data
-        source_file.coverage_data
+        if SimpleCov::SourceFile.instance_methods.include?(:coverage_data)
+          source_file.coverage_data
+        else
+          source_file.coverage
+        end
       end
 
       # @private
