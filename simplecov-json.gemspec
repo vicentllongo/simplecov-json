@@ -33,20 +33,20 @@ Gem::Specification.new do |spec|
       file.match(%r{^(lib/*|README|LICENSE|CHANGELOG)})
     end
   end
-  spec.test_files    = ["test/spec_helper.rb", "spec/simplecov/formatter/oj_formatter_spec.rb"]
+  spec.test_files    = ["spec/spec_helper.rb", "spec/simple_cov/formatter/oj_formatter_spec.rb"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency "oj", ">= 2.0", "< 5.0"
   spec.add_dependency "simplecov", "~> 0.18", "< 1.0"
 
-  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "bundler", '~> 2.1'
   spec.add_development_dependency "gem-release", "~> 2.0"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rake", '~> 13.0'
+  spec.add_development_dependency "rspec", '~> 3.9'
 
   # ===== Documentation =====
   spec.add_development_dependency "github-markup", "~> 3.0"
   spec.add_development_dependency "github_changelog_generator", "~> 1.14"
   # spec.add_development_dependency "redcarpet", "~> 3.4"
-  spec.add_development_dependency "yard", "~> 0.9.18"
+  spec.add_development_dependency "yard", "~> 0.9"
 end
