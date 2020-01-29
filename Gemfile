@@ -15,7 +15,7 @@ platforms :mri do
   gem "travis"
 end
 
-platforms :darwin do
+install_if -> { RUBY_PLATFORM =~ /darwin/ } do
   gem "fuubar"
   gem "rspec-nc"
 end
