@@ -8,7 +8,7 @@ JSON formatter for the ruby 1.9+ code coverage gem SimpleCov
 
         gem 'simplecov-json', :require => false, :group => :test
 
-2. Require simplecov-json and set it up as SimpleCov's formatter: 
+2. Require simplecov-json and set it up as SimpleCov's formatter:
 
         require 'simplecov-json'
         SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
@@ -18,34 +18,35 @@ JSON formatter for the ruby 1.9+ code coverage gem SimpleCov
 Generated JSON can be found in coverage/coverage.json
 
 The format you can expect is:
-
+```json
+{
+    "timestamp": 1348489587,
+    "command_name": "RSpec",
+    "files": [
         {
-            "timestamp": 1348489587,
-            "command_name": "RSpec",
-            "files": [
-                {
-                    "filename": "/home/user/rails/environment.rb",
-                    "covered_percent": 50.0,
-                    "coverage": [
-                        null,
-                        1,
-                        null,
-                        null,
-                        1
-                    ],
-                    "covered_strength": 0.50,
-                    "covered_lines": 2,
-                    "lines_of_code": 4
-                },
-                ...
+            "filename": "/home/user/rails/environment.rb",
+            "covered_percent": 50.0,
+            "coverage": [
+                null,
+                1,
+                null,
+                null,
+                1
             ],
-            "metrics": {
-                  "covered_percent": 81.70731707317073,
-                  "covered_strength": 0.8170731707317073,
-                  "covered_lines": 67,
-                  "total_lines": 82
-            }
-        }
+            "covered_strength": 0.50,
+            "covered_lines": 2,
+            "lines_of_code": 4
+        },
+        ...
+    ],
+    "metrics": {
+          "covered_percent": 81.70731707317073,
+          "covered_strength": 0.8170731707317073,
+          "covered_lines": 67,
+          "total_lines": 82
+    }
+}
+```
 
 ## Making Contributions
 
@@ -60,4 +61,4 @@ If you want to contribute, please:
 
 ## Copyright
 
-Copyright (c) 2013 Vicent Llongo. See LICENSE for details.
+Copyright (c) 2013 Mikael Llongo. See LICENSE for details.
