@@ -4,6 +4,10 @@ require "simplecov-oj"
 require "pry"
 
 RSpec.configure do |config|
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -23,3 +27,5 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 end
+
+RSpec::Support::ObjectFormatter.default_instance.max_formatted_output_length = 10_000
