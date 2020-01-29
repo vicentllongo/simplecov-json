@@ -42,12 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "gem-release", "~> 2.0"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "reek"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rspec-nc"
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "rubocop-performance"
-  spec.add_development_dependency "rubocop-rspec"
 
   # ===== Documentation =====
   spec.add_development_dependency "github-markup", "~> 3.0"
