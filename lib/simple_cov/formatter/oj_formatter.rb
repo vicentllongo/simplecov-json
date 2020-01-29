@@ -23,7 +23,7 @@ module SimpleCov
       #
       def format(result)
         json = dump_json(result)
-        puts OutputMessage.new(result, output_filepath)
+        puts SimpleCov::Oj::OutputMessage.new(result, output_filepath)
 
         json
       end

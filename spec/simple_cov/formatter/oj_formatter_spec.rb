@@ -2,13 +2,13 @@
 
 RSpec.describe SimpleCov::Formatter::OjFormatter do
   let(:formatter)     { described_class.new }
-  let(:result)        { double }
+  let(:result)        { instance_double(SimpleCov::Result) }
   let(:command_name)  { "RSpec" }
   let(:created_at)    { Time.now.to_s }
   let(:foo)           { instance_double(SimpleCov::SourceFile) }
-  let(:foo_line_list) { double }
+  let(:foo_line_list) { instance_double(Array) }
   let(:bar)           { instance_double(SimpleCov::SourceFile) }
-  let(:bar_line_list) { double }
+  let(:bar_line_list) { instance_double(Array) }
 
   describe "#format" do
     subject(:format) { formatter.format(result) }
