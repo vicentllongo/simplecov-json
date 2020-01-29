@@ -5,6 +5,7 @@ source "https://rubygems.org"
 gemspec
 
 platforms :mri do
+  gem "fuubar"
   gem "github_changelog_generator"
   gem "pry"
   gem "redcarpet", "~> 3.4"
