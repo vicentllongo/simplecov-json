@@ -2,7 +2,7 @@ env:
   matrix:
     - COV=false
   global:
-    - CC_TEST_REPORTER_ID=8ba417e8bf62f355529f4f11b42114f99e073459a7424e79845d64ab95e52b76
+    - CC_TEST_REPORTER_ID=03a9a72ff2d5917bfce0f17e453dc261874a4b8ebb4a29846d8eaddc89bbeb54
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
 dist: bionic
 sudo: required
