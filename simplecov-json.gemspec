@@ -3,7 +3,7 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require "simplecov/oj/version"
+require "simple_cov/oj/version"
 
 Gem::Specification.new do |spec|
   spec.name        = "simplecov-oj"
@@ -40,13 +40,18 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov", "~> 0.18", "< 1.0"
 
   spec.add_development_dependency "bundler"
-  spec.add_development_dependency "fuubar"
   spec.add_development_dependency "gem-release", "~> 2.0"
-  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "reek"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-nc"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rspec"
+
+  # ===== Documentation =====
+  spec.add_development_dependency "github-markup", "~> 3.0"
+  spec.add_development_dependency "github_changelog_generator", "~> 1.14"
+  # spec.add_development_dependency "redcarpet", "~> 3.4"
+  spec.add_development_dependency "yard", "~> 0.9.18"
 end

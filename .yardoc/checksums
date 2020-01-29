@@ -1,0 +1,4 @@
+LICENSE.txt 87e4c6ae35506e77145a9961650e4c8a21398c00
+lib/simple_cov/oj/version.rb 9139fad5c0284b23ba6dae518b90cda298a68ad3
+lib/simple_cov/oj/result_to_hash.rb 3eb902abfdf3320bfbd376efa4c5a83429d5d3c3
+lib/simple_cov/formatter/oj_formatter.rb 14ce76e22a6a6788422c20c9e1774b88d1baa289
