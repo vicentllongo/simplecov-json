@@ -31,17 +31,8 @@ Lint/SuppressedException:
 Lint/UselessAssignment:
   Enabled: true
 
-# Metrics/AbcSize:
-#   Max: 38
-
-# Metrics/CyclomaticComplexity:
-#   Max: 7
-
-Metrics/LineLength:
+Layout/LineLength:
   Max: 125
-
-# Metrics/MethodLength:
-#   Max: 13
 
 Metrics/BlockLength:
   Enabled: true
