@@ -29,13 +29,13 @@ end
 
 RuboCop::RakeTask.new(:rubocop) do |task|
   # task.patterns = changed_files(5)
-  task.options = %w[-DEP --format fuubar]
+  task.options = %w[-DEP --require fuubar --format fuubar]
 end
 
 task style: [:reek, :rubocop]
 
 RSpec::Core::RakeTask.new(:rspec) do |t|
-  t.rspec_opts = "--format Fuubar"
+  t.rspec_opts = "--require fuubar --format Fuubar --format Nc"
 end
 
 require "yard"
