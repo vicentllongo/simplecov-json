@@ -1,0 +1,6 @@
+--no-private
+--markup-provider=redcarpet
+--markup=markdown
+--readme README.md
+--files CHANGELOG.md,LICENSE
+lib/simple_cov/**/*.rb

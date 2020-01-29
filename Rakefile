@@ -47,7 +47,7 @@ YARD::Rake::YardocTask.new(:yard) do |t|
     --markup=markdown
     --markup-provider=redcarpet
     --readme README.md
-    --files CHANGELOG.md, LICENSE
+    --files CHANGELOG.md
   ]
   t.stats_options = %w[
     --no-private
