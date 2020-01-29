@@ -5,11 +5,14 @@ module SimpleCov
     #
     # Massage result into a hash that can be dumped to json by OJ
     #
-    # @author Mikael Henriksson <mikael@zoolutions.se>
+    # @author Mikael Henriksson <mikael@mhenrixon.se>
     #
     class ResultToHash
-      attr_reader :result, :data
-
+      #
+      # Initialize a new ResultToHash
+      #
+      # @param [SimpleCov::Result] result the final result from simplecov
+      #
       def initialize(result)
         @result = result
         @data = {
@@ -19,6 +22,12 @@ module SimpleCov
         }
       end
 
+      #
+      # Create a hash from the result that can be used for JSON dumping
+      #
+      #
+      # @return [Hash]
+      #
       def to_h
         extract_files
         extract_metrics
@@ -26,6 +35,8 @@ module SimpleCov
       end
 
       private
+
+      attr_reader :result, :data
 
       # @private
       def extract_files

@@ -1,23 +1,37 @@
 # frozen_string_literal: true
 
+# @see SimpleCov https://github.com/colszowka/simplecov
 module SimpleCov
+  # @see SimpleCov::Formatter https://github.com/colszowka/simplecov
   module Formatter
     #
     # Formats Simplecov Results into a json file `coverage.json`
     #
-    # @author Mikael Henriksson <mikael@zoolutions.se>
+    # @author Mikael Henriksson <mikael@mhenrixon.se>
     #
     class OjFormatter
+      #
+      # @return [String] name of the file with coverage.json data
       FILE_NAME = "coverage.json"
 
       #
-      # Formats the result as
+      # Formats the result as a hash, dump it to json with Oj and then save it to disk
       #
-      # @param [<type>] result <description>
+      # @param [SimpleCov::Result] result
       #
       # @return [<type>] <description>
       #
       def format(result)
+        json = dump_json(result)
+        puts OutputMessage.new(result, output_filepath)
+
+        json
+      end
+
+      private
+
+      # @private
+      def dump_json(result)
         data = SimpleCov::Oj::ResultToHash.new(result).to_h
         json = ::Oj.dump(data, mode: :compat)
 
@@ -25,30 +39,17 @@ module SimpleCov
           file.puts json
         end
 
-        puts output_message(result)
-
         json
       end
 
+      # @private
       def output_filename
         FILE_NAME
       end
 
+      # @private
       def output_filepath
-        File.join(output_path, output_filename)
-      end
-
-      def output_message(result)
-        "Coverage report generated" \
-        " for #{result.command_name}" \
-        " to #{output_filepath}." \
-        " #{result.covered_lines} / #{result.total_lines} LOC (#{result.covered_percent.round(2)}%) covered."
-      end
-
-      private
-
-      def output_path
-        SimpleCov.coverage_path
+        File.join(SimpleCov.coverage_path, output_filename)
       end
     end
   end
