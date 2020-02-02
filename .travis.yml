@@ -51,6 +51,7 @@ matrix:
   include:
     - rvm: 2.6.5
       env: COV=true
+      gemfile: gemfiles/simplecov_0.18.gemfile
 
 notifications:
   email:
