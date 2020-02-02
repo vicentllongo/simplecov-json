@@ -26,7 +26,7 @@ module SimpleCov
       # @return [String]
       #
       def to_s
-        "Coverage report generated" \
+        'Coverage report generated' \
         " for #{command_name}" \
         " to #{output_filepath}." \
         " #{covered_lines} / #{total_lines} LOC (#{covered_percent.round(2)}%) covered."

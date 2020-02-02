@@ -29,7 +29,7 @@ module SimpleCov
           covered_percent: covered_percent,
           covered_strength: covered_strength,
           covered_lines: covered_lines,
-          total_lines: total_lines,
+          total_lines: total_lines
         }
       end
 

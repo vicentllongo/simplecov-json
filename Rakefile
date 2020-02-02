@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require "reek/rake/task"
-require "rspec/core/rake_task"
-require "rubocop/rake_task"
+require 'reek/rake/task'
+require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
 Dir.glob("#{File.expand_path(__dir__)}/lib/tasks/**/*.rake").each { |f| import f }
 
 Reek::Rake::Task.new(:reek) do |t|
-  t.name          = "reek"
-  t.config_file   = ".reek.yml"
-  t.source_files  = "."
+  t.name          = 'reek'
+  t.config_file   = '.reek.yml'
+  t.source_files  = '.'
   t.reek_opts     = %w[
     --line-numbers
     --color
@@ -17,7 +17,7 @@ Reek::Rake::Task.new(:reek) do |t|
     --progress
     --single-line
     --sort-by smelliness
-  ].join(" ")
+  ].join(' ')
   t.fail_on_error = true
   t.verbose       = true
 end
@@ -32,13 +32,14 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = %w[-DEP --require fuubar --format fuubar]
 end
 
-task style: [:reek, :rubocop]
+desc 'Validate ruby styles'
+task style: %i[reek rubocop]
 
 RSpec::Core::RakeTask.new(:rspec) do |t|
-  t.rspec_opts = "--require fuubar --format Fuubar --format Nc"
+  t.rspec_opts = '--require fuubar --format Fuubar --format Nc'
 end
 
-require "yard"
+require 'yard'
 YARD::Rake::YardocTask.new(:yard) do |t|
   t.files   = %w[lib/simple_cov/**/*.rb]
   t.options = %w[
@@ -56,11 +57,12 @@ YARD::Rake::YardocTask.new(:yard) do |t|
   ]
 end
 
+desc 'Release new gem version'
 task :release do
-  sh("./update_docs.sh")
-  sh("gem release --tag --push")
-  Rake::Task["changelog"].invoke
-  sh("gem bump --file lib/simple_cov/oj/version.rb")
+  sh('./update_docs.sh')
+  sh('gem release --tag --push')
+  Rake::Task['changelog'].invoke
+  sh('gem bump --file lib/simple_cov/oj/version.rb')
 end
 
-task default: [:style, :rspec, :yard]
+task default: %i[style rspec yard]

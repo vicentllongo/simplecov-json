@@ -12,7 +12,7 @@ module SimpleCov
     class OjFormatter
       #
       # @return [String] name of the file with coverage.json data
-      FILE_NAME = "coverage.json"
+      FILE_NAME = 'coverage.json'
 
       #
       # Formats the result as a hash, dump it to json with Oj and then save it to disk
@@ -35,7 +35,7 @@ module SimpleCov
         data = SimpleCov::Oj::ResultToHash.new(result).to_h
         json = ::Oj.dump(data, mode: :compat)
 
-        File.open(output_filepath, "w+") do |file|
+        File.open(output_filepath, 'w+') do |file|
           file.puts json
         end
 

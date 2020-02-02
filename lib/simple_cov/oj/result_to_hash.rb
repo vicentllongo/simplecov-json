@@ -18,7 +18,7 @@ module SimpleCov
         @data = {
           timestamp: result.created_at.to_i,
           command_name: result.command_name,
-          files: [],
+          files: []
         }
       end
 
