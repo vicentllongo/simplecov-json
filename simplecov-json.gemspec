@@ -44,6 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'gem-release', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.9'
+  spec.add_development_dependency 'simplecov-material'
 
   # ===== Documentation =====
   spec.add_development_dependency 'github-markup', '~> 3.0'
