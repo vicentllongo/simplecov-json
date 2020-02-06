@@ -42,10 +42,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'appraisal'
   spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'gem-release', '~> 2.0'
+  spec.add_development_dependency 'json_spec'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'simplecov-json'
-  spec.add_development_dependency 'json_spec'
 
   # ===== Documentation =====
   spec.add_development_dependency 'github-markup', '~> 3.0'
