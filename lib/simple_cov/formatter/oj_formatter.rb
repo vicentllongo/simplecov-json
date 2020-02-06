@@ -43,13 +43,8 @@ module SimpleCov
       end
 
       # @private
-      def output_filename
-        FILE_NAME
-      end
-
-      # @private
       def output_filepath
-        File.join(SimpleCov.coverage_path, output_filename)
+        File.join(SimpleCov.coverage_path, FILE_NAME)
       end
     end
   end
