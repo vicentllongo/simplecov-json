@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    simplecov-oj (0.18.0)
+    simplecov-oj (0.18.2)
       oj (>= 2.0, < 5.0)
       simplecov (~> 0.14, < 1.0)
 
@@ -44,10 +44,7 @@ GEM
       faraday (~> 0.8)
     faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.12.1)
-    fuubar (2.5.0)
-      rspec-core (~> 3.0)
-      ruby-progressbar (~> 1.4)
+    ffi (1.12.2)
     gem-release (2.1.1)
     gh (0.15.1)
       addressable (~> 2.4.0)
@@ -71,6 +68,9 @@ GEM
     ice_nine (0.11.2)
     jaro_winkler (1.5.4)
     json (2.3.0)
+    json_spec (1.1.5)
+      multi_json (~> 1.0)
+      rspec (>= 2.0, < 4.0)
     kwalify (0.7.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -80,10 +80,10 @@ GEM
     multipart-post (2.1.1)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
-    octokit (4.15.0)
+    octokit (4.16.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (3.10.1)
+    oj (3.10.2)
     parallel (1.19.1)
     parser (2.7.0.2)
       ast (~> 2.4.0)
@@ -116,9 +116,6 @@ GEM
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-nc (0.3.0)
-      rspec (>= 3)
-      terminal-notifier (>= 1.4)
     rspec-support (3.9.2)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
@@ -127,19 +124,31 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
+    rubocop-mhenrixon (0.79.8)
+      rubocop (~> 0.79)
+      rubocop-performance (~> 1.5)
+      rubocop-rake (~> 0.5)
+      rubocop-rspec (~> 1.37)
+      rubocop-thread_safety (~> 0.3)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
+    rubocop-rake (0.5.0)
+      rubocop
     rubocop-rspec (1.37.1)
       rubocop (>= 0.68.1)
+    rubocop-thread_safety (0.3.4)
+      rubocop (>= 0.51.0)
     ruby-progressbar (1.10.1)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    simplecov (0.18.0)
+    simplecov (0.18.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11.0)
     simplecov-html (0.11.0)
-    terminal-notifier (2.0.0)
+    simplecov-json (0.2)
+      json
+      simplecov
     thor (1.0.1)
     thread_safe (0.3.6)
     travis (1.8.10)
@@ -171,20 +180,18 @@ PLATFORMS
 DEPENDENCIES
   appraisal
   bundler (~> 2.1)
-  fuubar
   gem-release (~> 2.0)
   github-markup (~> 3.0)
   github_changelog_generator
+  json_spec
   pry
   rake (~> 13.0)
   redcarpet (~> 3.4)
   reek (>= 5.3)
   rspec (~> 3.9)
-  rspec-nc
-  rubocop
-  rubocop-performance
-  rubocop-rspec
+  rubocop-mhenrixon
   simplecov (~> 0.18.0)
+  simplecov-json
   simplecov-oj!
   travis
   yard (~> 0.9)
