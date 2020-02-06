@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
+require 'bundler/setup'
 require 'simplecov'
-require 'simplecov-oj'
+
 require 'pry'
+require 'rspec'
+require 'json_spec'
+
+require 'simplecov-oj'
+
+RSpec.configure do |config|
+  config.include JsonSpec::Helpers
+end
 
 RSpec.configure do |config|
   config.define_derived_metadata do |meta|

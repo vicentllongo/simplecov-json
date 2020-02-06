@@ -39,11 +39,18 @@ module SimpleCov
 
       # @private
       def coverage_data
-        if SimpleCov::SourceFile.instance_methods.include?(:coverage_data)
-          source_file.coverage_data
-        else
-          source_file.coverage
-        end
+        return coverage if coverage.is_a?(Array)
+
+        coverage['lines']
+      end
+
+      def coverage
+        @coverage ||=
+          if SimpleCov::SourceFile.instance_methods.include?(:coverage_data)
+            source_file.coverage_data
+          else
+            source_file.coverage
+          end
       end
 
       # @private
