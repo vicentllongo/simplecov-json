@@ -41,7 +41,7 @@ module SimpleCov
       def coverage_data
         return coverage if coverage.is_a?(Array)
 
-        coverage['lines']
+        coverage.transform_keys(&:to_sym)[:lines]
       end
 
       def coverage
