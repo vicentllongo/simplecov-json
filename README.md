@@ -1,17 +1,21 @@
-# simplecov-json
+# simplecov-oj
 
-JSON formatter for the ruby 1.9+ code coverage gem SimpleCov
+JSON formatter for the ruby 2.5+ code coverage gem SimpleCov
 
 ## Usage
 
-1. Add simplecov-json to your `Gemfile` and `bundle install`:
+1. Add simplecov-oj to your `Gemfile` and `bundle install`:
 
-        gem 'simplecov-json', :require => false, :group => :test
+```ruby
+gem 'simplecov-oj', require: false, group: :test
+```
 
-2. Require simplecov-json and set it up as SimpleCov's formatter:
+2. Require simplecov-oj and set it up as SimpleCov's formatter:
 
-        require 'simplecov-json'
-        SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
+```ruby
+require 'simplecov-oj'
+SimpleCov.formatter = SimpleCov::Formatter::OjFormatter
+```
 
 ## Result
 
@@ -61,4 +65,4 @@ If you want to contribute, please:
 
 ## Copyright
 
-Copyright (c) 2013 Mikael Llongo. See LICENSE for details.
+Copyright (c) 2020 Mikael Henriksson. See LICENSE for details.
