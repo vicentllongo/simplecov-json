@@ -13,7 +13,7 @@ class SimpleCov::Formatter::JSONFormatter
       data[:files] << {
         filename: sourceFile.filename,
         covered_percent: sourceFile.covered_percent,
-        coverage: sourceFile.coverage,
+        coverage: sourceFile.coverage_data,
         covered_strength: sourceFile.covered_strength.nan? ? 0.0 : sourceFile.covered_strength, 
         covered_lines: sourceFile.covered_lines.count, 
         lines_of_code: sourceFile.lines_of_code, 
