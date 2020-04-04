@@ -10,10 +10,14 @@ class SimpleCov::Formatter::JSONFormatter
     data[:files] = []
     result.files.each do |sourceFile|
       next unless result.filenames.include? sourceFile.filename
+
+      # Compatible with older versions of simplecov.
+      coverage_data = (defined? sourceFile.coverage) ? sourceFile.coverage : sourceFile.coverage_data
+
       data[:files] << {
         filename: sourceFile.filename,
         covered_percent: sourceFile.covered_percent,
-        coverage: sourceFile.coverage_data,
+        coverage: coverage_data,
         covered_strength: sourceFile.covered_strength.nan? ? 0.0 : sourceFile.covered_strength, 
         covered_lines: sourceFile.covered_lines.count, 
         lines_of_code: sourceFile.lines_of_code, 
