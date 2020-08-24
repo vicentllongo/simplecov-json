@@ -1,10 +1,4 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'simplecov'
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'simplecov-json'
-
 require 'test/unit'
-require 'mocha/setup'
-
-class Test::Unit::TestCase
-end
+require 'mocha'

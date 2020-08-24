@@ -18,14 +18,14 @@ class TestSimpleCovHtml < Test::Unit::TestCase
 
     foo.expects(:filename).twice.returns('/lib/foo.rb')
     foo.expects(:covered_percent).returns(50.0)
-    foo.expects(:coverage).returns([1, nil, 0, 0, nil, 1, nil])
+    foo.expects(:coverage_data).returns([1, nil, 0, 0, nil, 1, nil])
     foo.expects(:covered_strength).twice.returns(0.50)
     foo.expects(:covered_lines).returns(fooLineList)
     foo.expects(:lines_of_code).returns(4)
     
     bar.expects(:filename).twice.returns('/lib/bar.rb')
     bar.expects(:covered_percent).returns(71.42)
-    bar.expects(:coverage).returns([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
+    bar.expects(:coverage_data).returns([nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil])
     bar.expects(:covered_strength).twice.returns(0.71)
     bar.expects(:covered_lines).returns(barLineList)
     bar.expects(:lines_of_code).returns(7)
