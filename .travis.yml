@@ -27,10 +27,10 @@ before_script:
 script:
   - >
     if [[ "${COV}" = "true" ]]; then
-    bundle exec reek;
-    bundle exec rubocop;
+    bin/reek;
+    bin/rubocop;
     fi;
-  - bundle exec rspec
+  - bin/rspec
 
 after_script:
   - if [[ "${COV}" = "true" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi;

@@ -13,6 +13,7 @@ module SimpleCov
       #
       # @return [String] name of the file with coverage.json data
       FILE_NAME = 'coverage.json'
+      OUTPUT_FILE_PATH = File.join(SimpleCov.coverage_path, FILE_NAME)
 
       #
       # Formats the result as a hash, dump it to json with Oj and then save it to disk
@@ -22,29 +23,10 @@ module SimpleCov
       # @return [<type>] <description>
       #
       def format(result)
-        json = dump_json(result)
-        puts SimpleCov::Oj::OutputMessage.new(result, output_filepath)
+        json = SimpleCov::FormatResult.call(result, OUTPUT_FILE_PATH)
+        puts SimpleCov::Oj::OutputMessage.new(result, OUTPUT_FILE_PATH)
 
         json
-      end
-
-      private
-
-      # @private
-      def dump_json(result)
-        data = SimpleCov::Oj::ResultToHash.new(result).to_h
-        json = ::Oj.dump(data, mode: :compat)
-
-        File.open(output_filepath, 'w+') do |file|
-          file.puts json
-        end
-
-        json
-      end
-
-      # @private
-      def output_filepath
-        File.join(SimpleCov.coverage_path, FILE_NAME)
       end
     end
   end
