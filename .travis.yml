@@ -5,7 +5,7 @@ arch: arm64-graviton2
 virt: lxd
 
 env:
-  matrix:
+  jobs:
     - COV=false
   global:
     - CC_TEST_REPORTER_ID=03a9a72ff2d5917bfce0f17e453dc261874a4b8ebb4a29846d8eaddc89bbeb54
@@ -53,7 +53,7 @@ gemfile:
   - gemfiles/simplecov_0.18.gemfile
   - gemfiles/simplecov_develop.gemfile
 
-matrix:
+jobs:
   fast_finish: true
   include:
     - rvm: 2.6.6
