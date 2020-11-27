@@ -36,6 +36,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = ['spec/spec_helper.rb', 'spec/simple_cov/formatter/oj_formatter_spec.rb']
   spec.require_paths = ['lib']
 
+  spec.required_ruby_version = '~> 2.5'
+
   spec.add_dependency 'oj', '>= 2.0', '< 5.0'
   spec.add_dependency 'simplecov', '~> 0.14', '< 1.0'
 
@@ -47,8 +49,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.9'
 
   # ===== Documentation =====
-  spec.add_development_dependency 'github-markup', '~> 3.0'
   spec.add_development_dependency 'github_changelog_generator', '~> 1.14'
+  spec.add_development_dependency 'github-markup', '~> 3.0'
   # spec.add_development_dependency "redcarpet", "~> 3.4"
   spec.add_development_dependency 'yard', '~> 0.9'
 end

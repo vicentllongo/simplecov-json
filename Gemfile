@@ -14,7 +14,7 @@ platforms :mri do
 end
 
 if respond_to?(:install_if)
-  install_if -> { RUBY_PLATFORM =~ /darwin/ } do
+  install_if -> { RUBY_PLATFORM.include?('darwin') } do
     gem 'fuubar'
     gem 'rspec-nc'
   end

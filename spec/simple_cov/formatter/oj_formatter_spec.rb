@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe SimpleCov::Formatter::OjFormatter do
+RSpec.describe SimpleCov::Formatter::OjFormatter do # rubocop:disable RSpec/MultipleMemoizedHelpers
   let(:formatter)         { described_class.new }
   let(:result)            { instance_double(SimpleCov::Result) }
   let(:command_name)      { 'RSpec' }
@@ -12,7 +12,7 @@ RSpec.describe SimpleCov::Formatter::OjFormatter do
   let(:bar_line_list)     { instance_double(Array) }
   let(:bar_coverage_data) { [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil] }
 
-  describe '#format' do
+  describe '#format' do # rubocop:disable RSpec/MultipleMemoizedHelpers
     subject(:format) { formatter.format(result) }
 
     let(:expected_hash) do
@@ -81,7 +81,7 @@ RSpec.describe SimpleCov::Formatter::OjFormatter do
 
     it { is_expected.to be_json_eql(expected_hash) }
 
-    context 'when coverage_data is a hash with the key `lines:`' do
+    context 'when coverage_data is a hash with the key `lines:`' do # rubocop:disable RSpec/MultipleMemoizedHelpers
       let(:foo_coverage_data) { { lines: [1, nil, 0, 0, nil, 1, nil] } }
       let(:bar_coverage_data) { { lines: [nil, 1, nil, 1, 1, 1, 0, 0, nil, 1, nil] } }
 

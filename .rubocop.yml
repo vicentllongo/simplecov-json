@@ -3,6 +3,7 @@ inherit_gem:
     - config/default.yml
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.5
   Include:
     - "**/Rakefile"
