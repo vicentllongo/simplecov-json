@@ -36,7 +36,9 @@ after_script:
   - if [[ "${COV}" = "true" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi;
 
 rvm:
-  - 2.5.7
+  - 2.5.8
+  - 2.7.2
+  - 2.6.6
 
 gemfile:
   - gemfiles/simplecov_0.14.gemfile
@@ -49,7 +51,7 @@ gemfile:
 matrix:
   fast_finish: true
   include:
-    - rvm: 2.6.5
+    - rvm: 2.6.6
       env: COV=true
       gemfile: gemfiles/simplecov_0.18.gemfile
 
