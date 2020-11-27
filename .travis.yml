@@ -1,10 +1,14 @@
+os: linux
+dist: focal
+group: edge
+arch: arm64-graviton2
+
 env:
   matrix:
     - COV=false
   global:
     - CC_TEST_REPORTER_ID=03a9a72ff2d5917bfce0f17e453dc261874a4b8ebb4a29846d8eaddc89bbeb54
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
-dist: bionic
 language: ruby
 cache:
   bundler: true
