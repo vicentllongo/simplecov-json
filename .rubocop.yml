@@ -2,6 +2,11 @@ inherit_gem:
   rubocop-mhenrixon:
     - config/default.yml
 
+inherit_mode:
+  merge:
+    - Exclude
+    - Include
+
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.5
@@ -9,6 +14,7 @@ AllCops:
     - "**/Rakefile"
     - "**/Gemfile"
     - "*.gemspec"
+    - "bin/**/*"
     - "lib/**/*.rb"
     - "lib/**/*.rake"
     - "spec/**/*.rb"
@@ -19,3 +25,6 @@ AllCops:
 Naming/FileName:
   Exclude:
     - lib/simplecov-oj.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

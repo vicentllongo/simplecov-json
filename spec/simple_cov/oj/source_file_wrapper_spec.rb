@@ -9,7 +9,7 @@ RSpec.describe SimpleCov::Oj::SourceFileWrapper do
   let(:line_list)         { instance_double(Array) }
   let(:coverage_data)     { [1, nil, 0, 0, nil, 1, nil] }
 
-  describe '#format' do # rubocop:disable RSpec/MultipleMemoizedHelpers
+  describe '#format' do
     subject(:to_h) { wrapper.to_h }
 
     let(:expected_hash) do
@@ -40,7 +40,7 @@ RSpec.describe SimpleCov::Oj::SourceFileWrapper do
 
     it { is_expected.to eq(expected_hash) }
 
-    context 'when coverage_data is a hash with the key `lines:`' do # rubocop:disable RSpec/MultipleMemoizedHelpers
+    context 'when coverage_data is a hash with the key `lines:`' do
       let(:coverage_data) { { 'lines' => [1, nil, 0, 0, nil, 1, nil] } }
 
       it { is_expected.to eq(expected_hash) }
