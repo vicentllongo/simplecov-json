@@ -2,6 +2,7 @@ os: linux
 dist: focal
 group: edge
 arch: arm64-graviton2
+virt: lxd
 
 env:
   matrix:
@@ -23,7 +24,7 @@ before_install:
   - chmod +x ./cc-test-reporter
 
 install:
-  - bundle install -j8 -r3
+  - bundle install --jobs=$(nproc) --retry=$(nproc)
 
 before_script:
   - ./cc-test-reporter before-build
