@@ -9,6 +9,6 @@ module SimpleCov
   module Oj
     #
     # @return [String] the current version of the gem
-    VERSION = '0.19.0'
+    VERSION = '0.21.0'
   end
 end
