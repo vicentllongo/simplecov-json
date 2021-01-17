@@ -62,7 +62,7 @@ task :release do
   sh('./update_docs.sh')
   sh('gem release --tag --push')
   Rake::Task['changelog'].invoke
-  sh('gem bump --file lib/simple_cov/oj/version.rb')
+  sh('gem bump --file lib/simple_cov/sublime/version.rb')
 end
 
 task default: %i[style rspec yard]

@@ -1,0 +1,32 @@
+name: Lint
+on: [push]
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler: 2.2.5
+          bundler-cache: true
+      - run: bin/bundle --jobs=$(nproc) --retry=$(nproc)
+      - run: bin/rubocop -P
+
+  # reek:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     fail-fast: true
+
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.7
+  #         bundler: 2.2.5
+  #         bundler-cache: true
+  #     - run: bin/bundle --jobs=$(nproc) --retry=$(nproc)
+  #     - run: bin/reek .

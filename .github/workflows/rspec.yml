@@ -1,0 +1,74 @@
+name: RSpec
+on: [push]
+jobs:
+  coverage:
+    services:
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler: 2.2.5
+          bundler-cache: true
+      # - uses: paambaati/codeclimate-action@v2.7.5
+      #   env:
+      #     COV: true
+      #     CC_TEST_REPORTER_ID: 3a86801713dff2117de9a09cec46a179bbc693b353f299d83c8023ad96b36a21
+      #   with:
+      #     coverageCommand: bin/rspec --require spec_helper --tag ~perf
+      #     debug: true
+
+      - name: Install Code Climate reporter
+        run: |
+          sudo curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          sudo chmod +x ./cc-test-reporter
+
+      - name: Start Code Climate Reporter
+        run: ./cc-test-reporter before-build
+        env:
+          GIT_BRANCH: ${GITHUB_REF#refs/heads/}
+          GIT_COMMIT_SHA: ${GITHUB_SHA}
+      - name: Generate Coverage
+        run: bin/rspec --require spec_helper --tag ~perf
+        env:
+          COV: true
+          GIT_BRANCH: ${GITHUB_REF#refs/heads/}
+          GIT_COMMIT_SHA: ${GITHUB_SHA}
+      - name: Upload Coverage
+        run: |
+          ./cc-test-reporter after-build --exit-code 0
+        env:
+          GIT_BRANCH: ${GITHUB_REF#refs/heads/}
+          GIT_COMMIT_SHA: ${GITHUB_SHA}
+          CC_TEST_REPORTER_ID: 3a86801713dff2117de9a09cec46a179bbc693b353f299d83c8023ad96b36a21
+
+  tests:
+    services:
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        ruby: [2.5, 2.6, 2.7]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler: 2.2.5
+          bundler-cache: true
+      - run: bin/appraisal install --jobs=$(nproc) --retry=$(nproc)
+      - run: bin/appraisal rspec --require spec_helper --tag ~perf

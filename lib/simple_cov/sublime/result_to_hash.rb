@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SimpleCov
-  module Oj
+  module Sublime
     #
     # Massage result into a hash that can be dumped to json by OJ
     #

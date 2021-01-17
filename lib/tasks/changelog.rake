@@ -10,7 +10,7 @@ task :changelog do
     --user
     mhenrixon
     --project
-    simplecov-oj
+    simplecov-sublime
     --token
   ]
   ADD_CHANGELOG_CMD ||= 'git add --all'

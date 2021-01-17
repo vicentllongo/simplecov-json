@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SimpleCov
-  module Oj
+  module Sublime
     #
     # Representation of the simplecov result including it's coverage data, source code,
     # source lines and featuring helpers to interpret that data.

@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/colszowka/simplecov.git
-  revision: 0260b1f309e76c8ed87731ebbc348b05d753b8a2
+  revision: 75e1c638447a2352fe5c41a53756534493e9d994
   specs:
-    simplecov (0.20.0)
+    simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
@@ -10,8 +10,8 @@ GIT
 PATH
   remote: ..
   specs:
-    simplecov-oj (0.21.0)
-      oj (>= 2.0, < 5.0)
+    simplecov-sublime (0.21.0)
+      json
       simplecov (~> 0.14, < 1.0.0)
 
 GEM
@@ -80,7 +80,6 @@ GEM
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (3.11.0)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -183,9 +182,9 @@ DEPENDENCIES
   rspec (~> 3.9)
   rubocop-mhenrixon
   simplecov!
-  simplecov-oj!
+  simplecov-sublime!
   travis
   yard (~> 0.9)
 
 BUNDLED WITH
-   2.2.4
+   2.2.5

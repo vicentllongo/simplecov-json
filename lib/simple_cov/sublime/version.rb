@@ -6,7 +6,7 @@ module SimpleCov
   #
   # @author Mikael Henriksson <mikael@zoolutions.se>
   #
-  module Oj
+  module Sublime
     #
     # @return [String] the current version of the gem
     VERSION = '0.21.0'

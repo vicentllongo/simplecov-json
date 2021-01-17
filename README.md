@@ -1,25 +1,27 @@
-# simplecov-oj
+# simplecov-sublime
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/4da5beeb8233b5739e07/maintainability)](https://codeclimate.com/github/mhenrixon/simplecov-sublime/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/4da5beeb8233b5739e07/test_coverage)](https://codeclimate.com/github/mhenrixon/simplecov-sublime/test_coverage)
 
 JSON formatter for the ruby 2.5+ code coverage gem SimpleCov
 
 ## Usage
 
-1. Add simplecov-oj to your `Gemfile` and `bundle install`:
+1. Add simplecov-sublime to your `Gemfile` and `bundle install`:
 
 ```ruby
-gem 'simplecov-oj', require: false, group: :test
+gem 'simplecov-sublime', require: false, group: :test
 ```
 
-2. Require simplecov-oj and set it up as SimpleCov's formatter:
+2. Require simplecov-sublime and set it up as SimpleCov's formatter:
 
 ```ruby
-require 'simplecov-oj'
-SimpleCov.formatter = SimpleCov::Formatter::OjFormatter
+require 'simplecov-sublime'
+SimpleCov.formatter = SimpleCov::Formatter::SublimeFormatter
 ```
 
 ## Result
 
-Generated JSON can be found in coverage/coverage.json
+Generated JSON can be found in coverage/sublime.json
 
 The format you can expect is:
 ```json

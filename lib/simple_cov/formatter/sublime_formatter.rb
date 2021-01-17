@@ -9,14 +9,14 @@ module SimpleCov
     #
     # @author Mikael Henriksson <mikael@mhenrixon.se>
     #
-    class OjFormatter
+    class SublimeFormatter
       #
       # @return [String] name of the file with coverage.json data
-      FILE_NAME = 'coverage.json'
+      FILE_NAME = 'sublime.json'
       OUTPUT_FILE_PATH = File.join(SimpleCov.coverage_path, FILE_NAME)
 
       #
-      # Formats the result as a hash, dump it to json with Oj and then save it to disk
+      # Formats the result as a hash, dump it to json with JSON and then save it to disk
       #
       # @param [SimpleCov::Result] result
       #
@@ -24,7 +24,7 @@ module SimpleCov
       #
       def format(result)
         json = SimpleCov::FormatResult.call(result, OUTPUT_FILE_PATH)
-        puts SimpleCov::Oj::OutputMessage.new(result, OUTPUT_FILE_PATH)
+        puts SimpleCov::Sublime::OutputMessage.new(result, OUTPUT_FILE_PATH)
 
         json
       end

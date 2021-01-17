@@ -7,7 +7,7 @@ require 'pry'
 require 'rspec'
 require 'json_spec'
 
-require 'simplecov-oj'
+require 'simplecov-sublime'
 
 RSpec.configure do |config|
   config.include JsonSpec::Helpers

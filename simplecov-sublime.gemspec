@@ -3,21 +3,21 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'simple_cov/oj/version'
+require 'simple_cov/sublime/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'simplecov-oj'
-  spec.version     = SimpleCov::Oj::VERSION
+  spec.name        = 'simplecov-sublime'
+  spec.version     = SimpleCov::Sublime::VERSION
   spec.platform    = Gem::Platform::RUBY
   spec.authors     = ['Mikael Henriksson']
   spec.email       = ['mikael@mhenrixon.com']
-  spec.homepage    = 'https://github.com/mhenrixon/simplecov-oj'
+  spec.homepage    = 'https://github.com/mhenrixon/simplecov-sublime'
   spec.license     = 'MIT'
   spec.summary     = <<~SUMMARY
-    Oj formatter for SimpleCov code coverage tool for ruby 2.4+
+    Sublime formatter for SimpleCov code coverage tool for ruby 2.5+
   SUMMARY
   spec.description = <<~DESCRIPTION
-    Oj formatter for SimpleCov code coverage tool for ruby 2.4+
+    Sublime  formatter for SimpleCov code coverage tool for ruby 2.5+
   DESCRIPTION
 
   raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.' unless spec.respond_to?(:metadata)
@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '~> 2.5'
 
-  spec.add_dependency 'oj', '>= 2.0', '< 5.0'
+  spec.add_dependency 'json'
   spec.add_dependency 'simplecov', '~> 0.14', '< 1.0.0'
 
   spec.add_development_dependency 'appraisal'

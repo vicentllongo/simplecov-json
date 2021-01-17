@@ -24,7 +24,7 @@ AllCops:
 
 Naming/FileName:
   Exclude:
-    - lib/simplecov-oj.rb
+    - lib/simplecov-sublime.rb
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false

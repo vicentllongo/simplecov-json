@@ -1,8 +1,8 @@
 PATH
   remote: ..
   specs:
-    simplecov-oj (0.21.0)
-      oj (>= 2.0, < 5.0)
+    simplecov-sublime (0.21.0)
+      json
       simplecov (~> 0.14, < 1.0.0)
 
 GEM
@@ -71,7 +71,6 @@ GEM
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (3.11.0)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -178,9 +177,9 @@ DEPENDENCIES
   rspec (~> 3.9)
   rubocop-mhenrixon
   simplecov (~> 0.21.0)
-  simplecov-oj!
+  simplecov-sublime!
   travis
   yard (~> 0.9)
 
 BUNDLED WITH
-   2.2.4
+   2.2.5
