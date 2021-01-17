@@ -139,11 +139,12 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    simplecov (0.16.1)
+    simplecov (0.20.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     travis (1.10.0)
@@ -176,7 +177,7 @@ DEPENDENCIES
   reek (>= 5.3)
   rspec (~> 3.9)
   rubocop-mhenrixon
-  simplecov (~> 0.16.0)
+  simplecov (~> 0.20.0)
   simplecov-oj!
   travis
   yard (~> 0.9)

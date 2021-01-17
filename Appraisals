@@ -24,6 +24,18 @@ appraise 'simplecov-0.18' do
   gem 'simplecov', '~> 0.18.0'
 end
 
+appraise 'simplecov-0.19' do
+  gem 'simplecov', '~> 0.19.0'
+end
+
+appraise 'simplecov-0.20' do
+  gem 'simplecov', '~> 0.20.0'
+end
+
+appraise 'simplecov-0.21' do
+  gem 'simplecov', '~> 0.21.0'
+end
+
 # if RUBY_PLATFORM =~ /darwin/
 #   each do |spec|
 #     spec.gem "fuubar"

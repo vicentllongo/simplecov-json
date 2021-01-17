@@ -51,14 +51,16 @@ gemfile:
   - gemfiles/simplecov_0.16.gemfile
   - gemfiles/simplecov_0.17.gemfile
   - gemfiles/simplecov_0.18.gemfile
+  - gemfiles/simplecov_0.19.gemfile
+  - gemfiles/simplecov_0.20.gemfile
   - gemfiles/simplecov_develop.gemfile
 
 jobs:
   fast_finish: true
   include:
-    - rvm: 2.6.6
+    - rvm: 2.7.1
       env: COV=true
-      gemfile: gemfiles/simplecov_0.18.gemfile
+      gemfile: gemfiles/simplecov_0.21.gemfile
 
 notifications:
   email:
