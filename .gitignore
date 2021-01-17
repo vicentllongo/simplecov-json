@@ -4,3 +4,4 @@ doc
 Gemfile.lock
 /spec/.rspec-status
 /.DS_Store
+/vendor/
